@@ -1,0 +1,66 @@
+use Libraries.Game.Game
+use Libraries.Interface.Events.KeyboardListener
+use Libraries.Interface.Events.KeyboardEvent
+use Libraries.Sound.Speech
+use Libraries.Game.InputMonitor
+use Libraries.Containers.HashTable
+use Libraries.Sound.Music
+use Libraries.Sound.Instrument
+
+class Main is Game
+        InputMonitor monitor 
+        KeyboardEvent keys
+        Speech talk 
+        name = "class"
+        HashTable<text, text> teacher
+        boolean nameSaid = false
+        Instrument i
+        Music note
+
+
+    action oncreate
+        teacher:Add("monkey", "UUUUUUUU")
+    end
+
+    
+    action Main
+        StartGame()
+    end
+
+    
+    action CreateGame
+    end
+
+  
+    action Update(number seconds)  
+        
+        if nameSaid = false
+            talk:Say("hello" + name)
+            nameSaid = true
+        end
+        if monitor:IsKeyPressed(keys:SPACE)
+            output "WIN!!!!!!!!!!!!!"
+            talk:Say("WIN!!!!!!!",true)
+            i:SetValue(120)
+            note:SetInstrument(i)
+            note:Play(60,5)
+            note:Close()
+            Exit()
+        elseif monitor:IsKeyPressed(keys:UP)
+            output "working"
+            talk:Say(teacher:GetValue("monkey"), true)
+        elseif monitor:IsKeyPressed (keys:DOWN)
+            output "bbbbbbbbbbbbbbb"
+            talk:Say ("bbbbbbbbbbbbbb",true)
+            elseif monitor:IsKeyPressed (keys:LEFT)
+            output "ccccccccccccccc"
+            talk:Say ("ccccccccccccccccc",true)
+            elseif monitor:IsKeyPressed (keys:RIGHT)
+            output "lololololololololololololol"
+            talk:Say ("lolololololololololol",true)
+        end   
+   end 
+end
+
+//JadeTori2
+//CaptionLight
