@@ -41,11 +41,14 @@ class Main is Game
         if monitor:IsKeyPressed(keys:SPACE)
             output "WIN!!!!!!!!!!!!!"
             talk:Say("WIN!!!!!!!",true)
-            i:SetValue(120)
+            i:SetValue(13)
             note:SetInstrument(i)
-            note:Play(60,5)
+            note:Play(80,1)
+            note:Play(90,1)
+            note:Play(75,1)
+            note:Play(100,1)
             note:Close()
-            Exit()
+          //  Exit()
         elseif monitor:IsKeyPressed(keys:UP)
             output "working"
             talk:Say(teacher:GetValue("monkey"), true)
@@ -61,6 +64,3 @@ class Main is Game
         end   
    end 
 end
-
-//JadeTori2
-//CaptionLight
