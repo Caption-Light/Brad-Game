@@ -8,6 +8,7 @@ use Libraries.Interface.Events.KeyboardEvent
 use Libraries.Sound.Music
 use Libraries.Sound.Speech
 use Libraries.Game.Graphics.Color
+use Libraries.Game.Graphics.Label
 
 
 class Main is Game
@@ -21,7 +22,11 @@ class Main is Game
         Instrument i
         Music note
         Color color
-
+        Label l
+        Label l4
+        Label l5
+        Label l3
+        Label l2
     action oncreate
         teacher:Add("monkey", "UUUUUUUU")
     end
@@ -29,12 +34,28 @@ class Main is Game
     
     action Main
         StartGame()
+
     end
 
     
     action CreateGame
     cube:LoadFilledRectangle(800,600,color: Green())
     Add (cube)
+    l:SetText  ("to user: this is a game for someone special")
+    l2:SetText  ("when a button is pushed the screen will change color")
+    l4:SetText ("to end the game push space. ")
+    l5:SetText  ("thank you for using this game and")
+    l3:SetText ("let the game begin!")
+    l:SetPosition (230,300)
+    l2:SetPosition (0230,280)
+    l4:SetPosition (230,260)
+    l5:SetPosition (230,240)
+    l3:SetPosition (230,220)
+    Add (l2)
+    Add (l4)
+    Add (l5)
+    Add (l)
+    Add (l3)
     end
 
   
@@ -45,8 +66,9 @@ class Main is Game
             nameSaid = true
         end
         if monitor:IsKeyPressed(keys:SPACE)
+            cube:SetColor (color: Green())
             output "WIN!!!!!!!!!!!!!"
-           // talk:Say("WIN!!!!!!!",true)
+            talk:Say("good job!",false)
             i:SetValue(13)
             note:SetInstrument(i)
             note:Play(80,0.20) 
@@ -58,22 +80,25 @@ class Main is Game
             note:Play(75,0.20)
             note:Play(90,0.20)
             note:Play(80,0.30)
-            note:Close()
             Exit()
             elseif monitor:IsKeyPressed(keys:UP)
-            cube:SetColor (color: Blue())
-            talk:Say ("5",false)
-            output "object 1"
-            talk:Say(teacher:GetValue("monkey"), false)
+                cube:SetColor (color: Blue())
+                talk:Say ("5",false)
+                output "object 1"
+                talk:Say(teacher:GetValue("monkey"), false)
             elseif monitor:IsKeyPressed (keys:DOWN)
-            output "object 2"
-            talk:Say ("bbbbbbbbbbbbbb",false)
+                cube:SetColor (color: Purple())
+                output "object 2"
+                talk:Say ("4",false)
             elseif monitor:IsKeyPressed (keys:LEFT)
-            output "object 3"
-            talk:Say ("ccccccccccccccccc",false)
+                cube:SetColor (color: Cyan())
+                output "object 3"
+                talk:Say ("3",false)
             elseif monitor:IsKeyPressed (keys:RIGHT)
-            output "object 4"
-            talk:Say ("lolololololololololol",false)
+                cube:SetColor (color: Yellow())
+                output "object 4"
+                talk:Say ("2",false)
         end   
+            note:Close()
    end 
 end
