@@ -33,13 +33,13 @@ class Main is Game
 
     
     action Main
-        StartGame()
-
+         UseDesktopResolution(true)
+          StartGame()
     end
 
     
     action CreateGame
-    cube:LoadFilledRectangle(800,600,color: Green())
+    cube:LoadFilledRectangle(8000,6000,color: Green())
     Add (cube)
     l:SetText  ("to user: this is a game for someone special")
     l2:SetText  ("when a button is pushed the screen will change color")
@@ -47,7 +47,7 @@ class Main is Game
     l5:SetText  ("thank you for using this game and")
     l3:SetText ("let the game begin!")
     l:SetPosition (230,300)
-    l2:SetPosition (0230,280)
+    l2:SetPosition (230,280)
     l4:SetPosition (230,260)
     l5:SetPosition (230,240)
     l3:SetPosition (230,220)
